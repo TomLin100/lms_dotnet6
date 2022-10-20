@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LMSweb.Models
 {
@@ -15,6 +16,7 @@ namespace LMSweb.Models
         [Display(Name = "知識點")]
         public string KContent { get; set; }
 
+        [ForeignKey("CID")]
         public virtual Course Courses { get; set; }
 
     }

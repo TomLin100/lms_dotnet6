@@ -3,12 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace LMSweb.Models
 {
     public class Teacher
-    {
-        public Teacher()
-        {
-            Courses = new HashSet<Course>();
-        }
-
+    { 
         [Key]
         [Required]
         [Display(Name = "教師編號")]

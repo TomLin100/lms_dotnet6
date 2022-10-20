@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LMSweb.Models
 {
@@ -20,10 +21,14 @@ namespace LMSweb.Models
         public string AssessedSID { get; set; }
 
         public string MID { get; set; }
+        [ForeignKey("MID")]
+        public virtual Mission Mission { get; set; }
         public string CID { get; set; }
+        [ForeignKey("CID")]
         public virtual Course Course { get; set; }
 
         public int SMID {get; set;}
+        [ForeignKey("SMID")]
         public virtual StudentMission StudentMissions { get; set; }
 
     }

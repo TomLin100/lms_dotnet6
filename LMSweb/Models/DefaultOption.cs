@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LMSweb.Models
 {
@@ -7,7 +8,7 @@ namespace LMSweb.Models
         [Key]
         public int DOID { get; set; }
         public int DQID { get; set; }
-
+        [ForeignKey("DQID")]
         public virtual DefaultQuestion DefaultQuestion { get; set; }
 
         [Display(Name = "作答")]

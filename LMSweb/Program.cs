@@ -4,7 +4,7 @@ using LMSweb.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var conn = builder.Configuration.GetConnectionString("LMSweb");
+var conn = builder.Configuration["LMSweb"];
 
 builder.Services.AddDbContext<LMSmodel>(options=>{
     options.UseSqlServer(conn);

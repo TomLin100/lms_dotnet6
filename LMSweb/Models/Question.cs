@@ -21,9 +21,10 @@ namespace LMSweb.Models
         public string Description { get; set; }
         
         public string MID { get; set; }
-
+        [ForeignKey("MID")]
         public virtual Mission mission { get; set; }
         public string CID { get; set; }
+        [ForeignKey("CID")]
         public virtual Course Course { get; set; }
 
         

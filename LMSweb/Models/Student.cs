@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LMSweb.Models
 {
@@ -30,9 +31,13 @@ namespace LMSweb.Models
         [Required]
         [Display(Name = "課程編號")]
         public string CID { get; set; }
+        public int? GID { get; set; }
 
-        public virtual Group group{ get; set; }
-        public virtual Course course { get; set; }
+        [ForeignKey("GID")]
+        public virtual Group Group{ get; set; }
+
+        [ForeignKey("CID")]
+        public virtual Course Course { get; set; }
         public virtual ICollection<StudentMission> StudentMissions { get; set; }
         public virtual ICollection<LearningBehavior> LearningBehaviors { get; set; }
         public virtual ICollection<Response> Responses { get; set; }
