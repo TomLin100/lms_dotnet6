@@ -8,16 +8,8 @@ namespace LMSweb.Models
     {
         [Key]
         public int RID { get; set; }
-        public int DQID { get; set; }
-        public string CID { get; set; }
-        public string SID { get; set; }
-        public string MID { get; set; }
         public string Answer { get; set;}
-
-        [ForeignKey("SID")]
         public virtual Student Student { get; set; }
-
-        [ForeignKey("MID")]
         public virtual Mission Mission { get; set; }
        
         [ForeignKey("CID")]

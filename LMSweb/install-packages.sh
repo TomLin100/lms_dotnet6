@@ -1,5 +1,5 @@
 #!/bin/zsh
-dotnet tool install --global dotnet-ef
+# dotnet tool install --global dotnet-ef
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.EntityFrameworkCore.Tools
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer

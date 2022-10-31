@@ -7,7 +7,6 @@ namespace LMSweb.Models
     {
         [Key]
         public int GOID { get; set; }
-        public int GQID { get; set; }
         public string OptionNum { get; set; }
 
         [ForeignKey("GQID")]

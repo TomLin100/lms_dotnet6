@@ -8,10 +8,6 @@ namespace LMSweb.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SMID {get; set;}
-        public string SID { get; set; }
-        public string MID { get; set; }
-        public int TEID { get; set; }
-
         public int total_score { get; set; }
 
         [Display(Name = "個人貢獻度分數")]
@@ -19,11 +15,7 @@ namespace LMSweb.Models
 
         [Display(Name = "自我評價")]
         public int SelfA { get; set; }
-
-        [ForeignKey("SID")]
         public virtual Student Student { get; set; }
-
-        [ForeignKey("MID")]
         public virtual Mission Mission { get; set; }
 
         [ForeignKey("TEID")]

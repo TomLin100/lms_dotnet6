@@ -8,17 +8,15 @@ namespace LMSweb.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SCID {get; set;}
-        public string CID { get; set; }
+
         [ForeignKey("CID")]
-        public virtual Course course { get; set; }
+        public virtual Course Course { get; set; }
 
-        public string MID { get; set; }
         [ForeignKey("MID")]
-        public virtual Mission mission { get; set; }
+        public virtual Mission Mission { get; set; }
 
-        public int GID { get; set; }
         [ForeignKey("GID")]
-        public virtual Group group { get; set; }
+        public virtual Group Group { get; set; }
 
         public string CodePath { get; set; }
 

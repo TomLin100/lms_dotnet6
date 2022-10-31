@@ -10,9 +10,6 @@ namespace LMSweb.Models
         public int KID { get; set; }
 
         [Required]
-        public string CID { get; set; }
-
-        [Required]
         [Display(Name = "知識點")]
         public string KContent { get; set; }
 

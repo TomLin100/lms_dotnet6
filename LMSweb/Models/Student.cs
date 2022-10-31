@@ -28,11 +28,6 @@ namespace LMSweb.Models
         [Display(Name = "積分")]
         public string Score { get; set; }
 
-        [Required]
-        [Display(Name = "課程編號")]
-        public string CID { get; set; }
-        public int? GID { get; set; }
-
         [ForeignKey("GID")]
         public virtual Group Group{ get; set; }
 

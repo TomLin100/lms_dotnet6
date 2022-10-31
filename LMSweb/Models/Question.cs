@@ -20,14 +20,11 @@ namespace LMSweb.Models
         [Display(Name = "題目")]
         public string Description { get; set; }
         
-        public string MID { get; set; }
         [ForeignKey("MID")]
         public virtual Mission mission { get; set; }
-        public string CID { get; set; }
-        [ForeignKey("CID")]
-        public virtual Course Course { get; set; }
 
-        
+        [ForeignKey("CID")]
+        public virtual Course Course { get; set; }        
         public virtual ICollection<Option> Options { get; set; }
         //public virtual ICollection<Response> Responses { get; set; }
         //public virtual ICollection<EvalutionResponse> EvalutionResponses { get; set; }

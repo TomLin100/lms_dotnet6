@@ -54,14 +54,17 @@ namespace LMSweb.Models
         public string relatedKP { get; set; }
 
         [Display(Name = "課程編號")]
-        public string CID { get; set; }
+
         [ForeignKey("CID")]
         public virtual Course course { get; set; }
-
-        public virtual ICollection<Student> Students { get; set; }
         public virtual ICollection<StudentMission> StudentMissions { get; set; }
         public virtual ICollection<LearningBehavior> LearningBehaviors { get; set; }
         public virtual ICollection<StudentCode> StudentCode { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<EvalutionResponse> EvalutionResponse { get; set; }
+        public virtual ICollection<Response> Responses { get; set; }
+
+        public virtual ICollection<PeerAssessment> PeerAssessments { get; set; }
     }
+    
 }

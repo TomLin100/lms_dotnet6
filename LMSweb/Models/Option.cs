@@ -7,7 +7,6 @@ namespace LMSweb.Models
     {
         [Key]
         public int OID { get; set; }
-        public int QID { get; set; }
         [ForeignKey("QID")]
         public virtual Question Question { get; set; }
 

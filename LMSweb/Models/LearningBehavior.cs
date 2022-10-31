@@ -8,10 +8,6 @@ namespace LMSweb.Models
         [Key]
         [Display(Name = "編號")]
         public int ID { get; set; }
-        public string CID { get; set; }        
-        public string MID { get; set; }
-        public int GID { get; set; }
-        public string SID { get; set; }
 
         [Required]
         [Display(Name = "動作類型")]
@@ -30,11 +26,8 @@ namespace LMSweb.Models
         [ForeignKey("GID")]
         public virtual Group Group { get; set; }
 
-        [ForeignKey("SID")]
         public virtual Student Student { get; set; }
 
-        
-        [ForeignKey("MID")]
         public virtual Mission Mission { get; set; }
 
         [ForeignKey("CID")]
