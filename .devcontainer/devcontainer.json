@@ -32,7 +32,9 @@
 				"ms-mssql.mssql",
 				"VisualStudioExptTeam.vscodeintellicode",
 				"VisualStudioExptTeam.intellicode-api-usage-examples",
-				"doggy8088.netcore-extension-pack"
+				"doggy8088.netcore-extension-pack",
+				"mhutchie.git-graph",
+				"Gruntfuggly.todo-tree"
 			]
 		}
 	},
