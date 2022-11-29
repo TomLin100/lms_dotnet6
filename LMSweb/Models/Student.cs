@@ -1,41 +1,18 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LMSweb.Models
+namespace LMSweb.Models;
+public class Student
 {
-    [MetadataType(typeof(Student))]
-    public class Student
-    {
-        [Key]
-        [Required]
-        [Display(Name = "學號")]
-        public string SID { get; set; }
-
-        [Required]
-        [Display(Name = "姓名")]
-        public string SName { get; set; }
-
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "密碼")]
-        public string SPassword { get; set; }
-
-        [Required]
-        [Display(Name = "性別")]
-        public string Sex { get; set; }
-
-
-        [Display(Name = "積分")]
-        public string Score { get; set; }
-
-        [ForeignKey("GID")]
-        public virtual Group Group{ get; set; }
-
-        [ForeignKey("CID")]
-        public virtual Course Course { get; set; }
-        public virtual ICollection<StudentMission> StudentMissions { get; set; }
-        public virtual ICollection<LearningBehavior> LearningBehaviors { get; set; }
-        public virtual ICollection<Response> Responses { get; set; }
-        public virtual ICollection<EvalutionResponse> EvalutionResponses { get; set; }
-    }
+    [Key]
+    public string SID { get; set; }
+    public string Password { get; set; }
+    public string SName { get; set;}
+    public string Sex { get; set; }
+    public string CID { get; set; }
+    [ForeignKey("CID")]
+    public Course Course { get; set; }
+    public string GID { get; set; }
+    [ForeignKey("GID")]
+    public Group Group { get; set; }
 }

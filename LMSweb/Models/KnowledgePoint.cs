@@ -1,20 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LMSweb.Models
+namespace LMSweb.Models;
+public class KnowledgePoint
 {
-    public class KnowledgePoint
-    {
-        [Key]
-        [Display(Name = "編號")]
-        public int KID { get; set; }
-
-        [Required]
-        [Display(Name = "知識點")]
-        public string KContent { get; set; }
-
-        [ForeignKey("CID")]
-        public virtual Course Courses { get; set; }
-
-    }
+    [Key]
+    public int KPID { get; set; }
+    public string KPContent { get; set; }    
+    public string CID { get; set; }
+    [ForeignKey("CID")]
+    public Course Course { get; set; }
 }

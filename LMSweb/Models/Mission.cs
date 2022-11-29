@@ -1,70 +1,25 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LMSweb.Models
+namespace LMSweb.Models;
+public class Mission
 {
-    [MetadataType(typeof(Mission))]
-    public class Mission
-    {
-        [Key]
-        [Display(Name = "任務編號")]
-        public string MID { get; set; }
-        [Required]
-        [Display(Name = "任務名稱")]
-        public string MName { get; set; }
-
-        [Required]
-        [Display(Name = "任務內容")]
-        public string MDetail { get; set; }
-
-        [Required]
-        [DataType(DataType.DateTime)]
-        [Display(Name = "開始時間")]
-        public string Start { get; set; }
-
-        [Required]
-        [DataType(DataType.DateTime)]
-        [Display(Name = "結束時間")]
-        public string End { get; set; }
-
-        [Display(Name = "目標設置是否開放")]
-        public bool IsGoalSetting { get; set; }
-
-        [Display(Name = "流程圖是否開放")]
-        public bool IsDrawing { get; set; }
-
-        [Display(Name = "程式碼是否開放")]
-        public bool IsCoding { get; set; }
-
-        [Display(Name = "討論區是否開放")]
-        public bool IsDiscuss { get; set; }
-
-        [Display(Name = "自評與互評是否開放")]
-        public bool IsAssess { get; set; }
-
-        [Display(Name = "組間互評是否開放")]
-        public bool IsGReflect { get; set; }
-
-        [Display(Name = "學習表現自評版是否開放")]
-        public bool IsReflect { get; set; }
-
-        [Display(Name = "自我反思是否開放")]
-        public bool Is_Journey { get; set; }
-        [Display(Name = "知識點")]
-        public string relatedKP { get; set; }
-
-        [Display(Name = "課程編號")]
-
-        [ForeignKey("CID")]
-        public virtual Course course { get; set; }
-        public virtual ICollection<StudentMission> StudentMissions { get; set; }
-        public virtual ICollection<LearningBehavior> LearningBehaviors { get; set; }
-        public virtual ICollection<StudentCode> StudentCode { get; set; }
-        public virtual ICollection<Question> Questions { get; set; }
-        public virtual ICollection<EvalutionResponse> EvalutionResponse { get; set; }
-        public virtual ICollection<Response> Responses { get; set; }
-
-        public virtual ICollection<PeerAssessment> PeerAssessments { get; set; }
-    }
-    
+    [Key]
+    public string MID { get; set; } // 任務編號
+    public string MName { get; set; } // 任務名稱
+    public string MDetail { get; set; } // 任務內容
+    public string MStart { get; set; } // 任務開始時間
+    public string MEnd { get; set; } // 任務結束時間
+    public string RelateKP { get; set; } // 相關知識點
+    public bool IsDrawing { get; set; } // 是否開放繪製流程圖
+    public bool IsCoding { get; set; } // 是否開放撰寫程式碼
+    public bool IsDiscuss { get; set; } // 是否開放討論
+    public bool IsAssess { get; set; } // 是否開放自評與互評
+    public bool IsGoalSetting { get; set; } // 是否開放目標設置
+    public bool IsReflect { get; set; } // 是否開放自我反思
+    public bool IsGReflect { get; set; } // 是否開放組間互評
+    public bool IsJourney { get; set; } // 是否開放學習表現(互評版)
+    public string CID { get; set; }
+    [ForeignKey("CID")]
+    public Course Course { get; set; }
 }
