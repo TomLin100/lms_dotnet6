@@ -11,17 +11,20 @@ builder.Services.AddDbContext<LMSmodel>(options=>{
     options.UseSqlServer(conn);
 });
 
-// builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-// .AddCookie(option=>{
-//     option.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-//     option.ClaimsIssuer = "Teacher";
-//     option.LoginPath = new PathString("/Teacher/Login");
-// })
-// .AddCookie(option=>{
-//     option.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-//     option.ClaimsIssuer = "Student";
-//     option.LoginPath = new PathString("/Student/Login");
-// });
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+.AddCookie("Student",option=>{
+    option.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+    option.LoginPath = new PathString("/Student/Login");
+    option.Cookie.HttpOnly = true;
+    option.Cookie.SameSite = SameSiteMode.Strict;
+})
+.AddCookie("Teacher",option=>{
+    option.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+    option.LoginPath = new PathString("/Teacher/Login");
+    option.Cookie.HttpOnly = true;
+    option.Cookie.SameSite = SameSiteMode.Strict;
+});
+builder.Services.AddAuthorization();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -43,7 +46,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-// app.UseAuthentication();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

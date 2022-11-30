@@ -9,6 +9,8 @@ public class LMSmodel : DbContext
     public virtual DbSet<Group> Groups { get; set; }
     public virtual DbSet<Mission> Missions { get; set; }
     public virtual DbSet<KnowledgePoint> KnowledgePoints { get; set; }
+    
+    public LMSmodel() {}
     public LMSmodel(DbContextOptions<LMSmodel> option): base(option)
     {
     }
