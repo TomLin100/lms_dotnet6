@@ -9,8 +9,8 @@ using Microsoft.Extensions.Logging;
 
 namespace LMSweb.Controllers
 {
-    [Route("[controller]")]
     [Authorize]
+    [Route("[controller]")]
     public class StudentController : Controller
     {
         private readonly ILogger<StudentController> _logger;
@@ -32,10 +32,10 @@ namespace LMSweb.Controllers
         }
 
         [AllowAnonymous]
+        [Route("[action]")]
         public IActionResult Login()
         {
             return View();
-        }
-        
+        }        
     }
 }

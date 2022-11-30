@@ -2,11 +2,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LMSweb.ViewModels
 {
-    public class LoginViewmodel
+    public class LoginViewModel
     {
         [Required]
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
+        public string ID { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

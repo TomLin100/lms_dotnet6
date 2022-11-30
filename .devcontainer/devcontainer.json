@@ -34,7 +34,10 @@
 				"VisualStudioExptTeam.intellicode-api-usage-examples",
 				"doggy8088.netcore-extension-pack",
 				"mhutchie.git-graph",
-				"Gruntfuggly.todo-tree"
+				"Gruntfuggly.todo-tree",
+				"esbenp.prettier-vscode",
+				"mohsen1.prettify-json",
+				"AnbuselvanRocky.bootstrap5-vscode"
 			]
 		}
 	},

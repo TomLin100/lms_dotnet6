@@ -1,0 +1,45 @@
+.header {
+    padding: 20px;
+    text-align: left;
+}
+.cardArticle {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto 20px;
+    padding: 30px 50px 30px;
+    border-radius: 5px;
+    background: #F0F0F2;
+    border: 1px solid #dee2e6;
+    border-color: #cdcdcd;
+}
+.article {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto 20px;
+    padding: 30px 50px 50px;
+    border-radius: 5px;
+    background: #F0F0F2;
+    border: 1px solid #dee2e6;
+    border-color: #cdcdcd;
+}
+.body {
+    background-color: #f8f8f8
+}
+.navBG {
+    background-color: #69899f
+}
+.carl {
+    align-items: center;
+    background-image: url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-size: cover;
+    background-color: #898888;
+    height: 400px;
+    color: white;
+    opacity: 0.8;
+}

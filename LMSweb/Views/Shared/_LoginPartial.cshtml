@@ -1,0 +1,32 @@
+@if (User.Identity.IsAuthenticated)
+{
+    <li class="nav-item">
+        <span class="nav-link text-light">
+            @User.Identity.Name
+        </span>
+    </li>
+    <li class="nav-item">
+        @* <a class="nav-link text-light" href="@Url.Action("Logout",User.Identity.AuthenticationType)">登出</a> *@
+        @Html.ActionLink("登出", "Logout", User.Identity.AuthenticationType, new { @class="nav-link text-light" })
+    </li>
+}
+else
+{
+    <li class="nav-item dropdown">
+        @* <a class="dropdown-item" href="@Url.Action("Login","Student")">學生登入</a>
+        <a class="dropdown-item" href="@Url.Action("Login","Teacher")">教師登入</a> *@
+        <a class="nav-link text-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            登入
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                @* @Html.ActionLink("學生", "Login", "Student",new {@class="dropdown-item"}) *@
+                <a class="dropdown-item" asp-action="login" asp-controller="student">學生</a>
+            </li>
+            <li>
+                @* @Html.ActionLink("教師", "Login", "Teacher",new {@class="dropdown-item"}) *@
+                <a class="dropdown-item" asp-action="login" asp-controller="teacher">教師</a>
+            </li>
+        </ul>
+    </li>
+}
