@@ -6,8 +6,9 @@
         </span>
     </li>
     <li class="nav-item">
+        @*@User.Identity.AuthenticationType*@
         @* <a class="nav-link text-light" href="@Url.Action("Logout",User.Identity.AuthenticationType)">登出</a> *@
-        @Html.ActionLink("登出", "Logout", User.Identity.AuthenticationType, new { @class="nav-link text-light" })
+        <a class="nav-link text-light" asp-action="Logout" asp-controller="@User.Identity.AuthenticationType">登出</a>
     </li>
 }
 else

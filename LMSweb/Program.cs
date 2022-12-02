@@ -11,14 +11,21 @@ builder.Services.AddDbContext<LMSmodel>(options=>{
     options.UseSqlServer(conn);
 });
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-.AddCookie("Student",option=>{
+builder.Services.AddAuthentication(op => {
+    op.DefaultScheme = "Student";
+})
+.AddCookie("Student", option =>
+{
     option.ExpireTimeSpan = TimeSpan.FromMinutes(30);
     option.LoginPath = new PathString("/Student/Login");
     option.Cookie.HttpOnly = true;
     option.Cookie.SameSite = SameSiteMode.Strict;
+});
+builder.Services.AddAuthentication(op => {
+    op.DefaultScheme = "Teacher";
 })
-.AddCookie("Teacher",option=>{
+.AddCookie("Teacher", option =>
+{
     option.ExpireTimeSpan = TimeSpan.FromMinutes(30);
     option.LoginPath = new PathString("/Teacher/Login");
     option.Cookie.HttpOnly = true;
