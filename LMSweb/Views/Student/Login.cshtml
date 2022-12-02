@@ -3,9 +3,7 @@
     ViewData["Title"] = "Login";
 }
 
-@using (Html.BeginForm("Login", "Student", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
+<form asp-controller="student" asp-action = "login" method="post">
     <div class="container" style=" padding: 50px 30px 40px; ">
     
         <div class="row">
@@ -42,5 +40,4 @@
             </div>
         </div>
     </div>
-}
-
+</form>

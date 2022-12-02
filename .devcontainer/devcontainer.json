@@ -52,7 +52,12 @@
 				"tintoy.msbuild-project-tools",
 				"adrianwilczynski.libman",
 				"adrianwilczynski.user-secrets",
-				"formulahendry.dotnet-test-explorer"
+				"formulahendry.dotnet-test-explorer",
+				"telesoho.vscode-markdown-paste-image",
+				"jmrog.vscode-nuget-package-manager",
+				"doggy8088.netcore-snippets",
+				"aaron-bond.better-comments",
+				"pflannery.vscode-versionlens"
 			]
 		}
 	},

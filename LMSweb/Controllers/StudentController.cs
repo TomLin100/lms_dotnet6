@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authentication;
 
 namespace LMSweb.Controllers
 {
-    [Authorize]
+    [Authorize(Roles="Student")]
     [Route("[controller]")]
     public class StudentController : Controller
     {
@@ -46,7 +46,7 @@ namespace LMSweb.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel login)
+        public IActionResult Login(LoginViewModel login)
         {
             var result = db.Students.Where(x => x.SID == login.ID && x.Password == login.Password).FirstOrDefault(); //驗證
             if (result != null) //資料庫有資料(這個人)
@@ -58,13 +58,13 @@ namespace LMSweb.Controllers
                     new Claim("SID",result.SID)
                 }, "Student");
 
-                await HttpContext.SignInAsync(new ClaimsPrincipal(identity)); // 授權(登入)
-                return RedirectToAction("Index", "Student");
+                HttpContext.SignInAsync(new ClaimsPrincipal(identity)); // 授權(登入)
+                return RedirectToAction("Index");
             }
             else
             {
                 ModelState.AddModelError("", "輸入的帳密可能有誤或是沒有註冊");
-                return View("Login");
+                return View(login);
             }
         }
         

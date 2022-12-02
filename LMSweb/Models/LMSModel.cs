@@ -1,3 +1,4 @@
+using LMSweb.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace LMSweb.Models;
@@ -16,6 +17,7 @@ public class LMSmodel : DbContext
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {            
+    {
+        modelBuilder.ApplyConfiguration(new StudentConfiguration());
     }
 }
