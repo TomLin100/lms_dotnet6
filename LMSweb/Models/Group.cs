@@ -6,5 +6,6 @@ public class Group
     [Key]
     public string GID { get; set; }
     public string GName { get; set; }
-    public ICollection<Student> Students { get; set; }
+    public virtual ICollection<Student> Students { get; set; }
+    public virtual ICollection<Discussion> Discussions { get; set; }
 }

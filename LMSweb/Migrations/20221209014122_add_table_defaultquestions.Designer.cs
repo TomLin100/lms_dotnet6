@@ -3,6 +3,7 @@ using LMSweb.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LMSweb.Migrations
 {
     [DbContext(typeof(LMSmodel))]
-    partial class LMSmodelModelSnapshot : ModelSnapshot
+    [Migration("20221209014122_add_table_defaultquestions")]
+    partial class add_table_defaultquestions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,45 +72,6 @@ namespace LMSweb.Migrations
                     b.HasKey("DQID");
 
                     b.ToTable("DefaultQuestions");
-                });
-
-            modelBuilder.Entity("LMSweb.Models.Discussion", b =>
-                {
-                    b.Property<int>("DisID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DisID"), 1L, 1);
-
-                    b.Property<string>("Detail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DiscussionTime")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("MID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("SID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("DisID");
-
-                    b.HasIndex("GID");
-
-                    b.HasIndex("MID");
-
-                    b.HasIndex("SID");
-
-                    b.ToTable("Discussion");
                 });
 
             modelBuilder.Entity("LMSweb.Models.Group", b =>
@@ -313,33 +276,6 @@ namespace LMSweb.Migrations
                     b.Navigation("Teacher");
                 });
 
-            modelBuilder.Entity("LMSweb.Models.Discussion", b =>
-                {
-                    b.HasOne("LMSweb.Models.Group", "Group")
-                        .WithMany("Discussions")
-                        .HasForeignKey("GID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LMSweb.Models.Mission", "Mission")
-                        .WithMany("Discussions")
-                        .HasForeignKey("MID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LMSweb.Models.Student", "Student")
-                        .WithMany("Discussions")
-                        .HasForeignKey("SID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Group");
-
-                    b.Navigation("Mission");
-
-                    b.Navigation("Student");
-                });
-
             modelBuilder.Entity("LMSweb.Models.KnowledgePoint", b =>
                 {
                     b.HasOne("LMSweb.Models.Course", "Course")
@@ -388,19 +324,7 @@ namespace LMSweb.Migrations
 
             modelBuilder.Entity("LMSweb.Models.Group", b =>
                 {
-                    b.Navigation("Discussions");
-
                     b.Navigation("Students");
-                });
-
-            modelBuilder.Entity("LMSweb.Models.Mission", b =>
-                {
-                    b.Navigation("Discussions");
-                });
-
-            modelBuilder.Entity("LMSweb.Models.Student", b =>
-                {
-                    b.Navigation("Discussions");
                 });
 
             modelBuilder.Entity("LMSweb.Models.Teacher", b =>

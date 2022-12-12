@@ -11,8 +11,10 @@ public class Student
     public string Sex { get; set; }
     public string? CID { get; set; }
     [ForeignKey("CID")]
-    public Course Course { get; set; }
-    public string? GID { get; set; }
+    public virtual Course Course { get; set; }
+    public virtual string? GID { get; set; }
     [ForeignKey("GID")]
-    public Group Group { get; set; }
+    public virtual Group Group { get; set; }
+
+    public virtual ICollection<Discussion> Discussions { get; set; }
 }

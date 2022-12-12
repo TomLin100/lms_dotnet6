@@ -21,5 +21,6 @@ public class Mission
     public bool IsJourney { get; set; } // 是否開放學習表現(互評版)
     public string CID { get; set; }
     [ForeignKey("CID")]
-    public Course Course { get; set; }
+    public virtual Course Course { get; set; }
+    public virtual ICollection<Discussion> Discussions { get; set; }
 }
