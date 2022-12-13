@@ -8,4 +8,5 @@ public class Group
     public string GName { get; set; }
     public virtual ICollection<Student> Students { get; set; }
     public virtual ICollection<Discussion> Discussions { get; set; }
+    public virtual ICollection<TeacherEvaluationResponse> TeacherEvaluationResponses { get; set; }
 }

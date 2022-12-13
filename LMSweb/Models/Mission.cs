@@ -23,4 +23,5 @@ public class Mission
     [ForeignKey("CID")]
     public virtual Course Course { get; set; }
     public virtual ICollection<Discussion> Discussions { get; set; }
+    public virtual ICollection<TeacherEvaluationResponse> TeacherEvaluationResponses { get; set; }
 }

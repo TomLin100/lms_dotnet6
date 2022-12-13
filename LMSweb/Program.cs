@@ -5,11 +5,11 @@ using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var conn = builder.Configuration["LMSweb"];
+// var conn = builder.Configuration["LMSweb"];
 
-builder.Services.AddDbContext<LMSmodel>(options=>{
-    options.UseSqlServer(conn);
-});
+builder.Services.AddDbContext<LMSmodel>();
+
+builder.Services.AddAuthentication();
 
 builder.Services.AddAuthentication(op => {
     op.DefaultScheme = "Student";

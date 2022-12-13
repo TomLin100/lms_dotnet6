@@ -10,7 +10,10 @@ public class LMSmodel : DbContext
     public virtual DbSet<Group> Groups { get; set; }
     public virtual DbSet<Mission> Missions { get; set; }
     public virtual DbSet<KnowledgePoint> KnowledgePoints { get; set; }
-    public virtual DbSet<DefaultQuestions> DefaultQuestions { get; set; }
+    public virtual DbSet<DefaultQuestion> DefaultQuestions { get; set; }
+    public virtual DbSet<DefaultOption> DefaultOptions { get; set; }
+    public virtual DbSet<GoalSettingResponse> GoalSettingResponses { get; set; }
+    public virtual DbSet<TeacherEvaluationResponse> TeacherEvaluationResponses { get; set; }
     
     public LMSmodel(DbContextOptions<LMSmodel> option): base(option)
     {
@@ -20,5 +23,10 @@ public class LMSmodel : DbContext
     {
         modelBuilder.ApplyConfiguration(new StudentConfiguration());
         modelBuilder.ApplyConfiguration(new TeacherConfiguration());
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer("server=localhost;database=LMSmodel;User ID=sa;Password=Tom@che100100");
     }
 }
